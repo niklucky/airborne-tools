@@ -1,0 +1,42 @@
+{
+  "name": "airborne-tools",
+  "version": "0.1.0",
+  "description": "Airborne framework tools",
+  "main": "index.js",
+  "bin": {
+    "airborne-tools" : "./index.js"
+  },
+  "scripts": {
+    "start": "nodemon examples/index.js",
+    "build": "babel src -d dist",
+    "watch": "babel -w src -d dist",
+    "test-watch": "mocha -w --recursive tests",
+    "test": "NODE_ENV=test istanbul cover _mocha -- -u exports -R spec tests/**/* && codecov",
+    "coverage": "NODE_ENV=test istanbul cover mocha -- -u exports -R spec tests/**/* && codecov -t 3a4fc313-8290-489d-81e7-37d707d77fd5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niklucky/airborne-tools.git"
+  },
+  "keywords": [
+    "airborne",
+    "tools",
+    "generator"
+  ],
+  "author": "Nikita Zhuravlev <iam@niklucky.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/niklucky/airborne-tools/issues"
+  },
+  "homepage": "https://github.com/niklucky/airborne-tools#readme",
+  "engines": {
+    "node": ">=4.1.2 =<6.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-plugin-istanbul": "^1.0.3",
+    "babel-preset-es2015": "^6.9.0",
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.4"
+  }
+}

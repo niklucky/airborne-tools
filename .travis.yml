@@ -1,0 +1,23 @@
+language: node_js
+sudo: false
+node_js:
+  - "6"
+  - "4.4"
+branches:
+  only:
+  - master
+cache:
+  bundler: true
+  directories:
+  - node_modules # NPM packages
+before_script:
+  - npm install -g mocha
+  - npm install -g istanbul
+  - npm install -g codecov
+  - npm run build
+install:
+  - npm install
+deploy:
+  provider: npm
+  email: "iam@niklucky.com"
+  api_key: "72bac027-1cb9-431c-a4ea-f8bd192caf73"
